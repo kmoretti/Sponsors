@@ -108,7 +108,7 @@
 	<div class="sponsor-list-block">
 		<div class="sponsor-list-header">
 			<h2>赞助名单</h2>
-			<Button href="#" variant="secondary" size="sm">加入名单</Button>
+			<Button href="https://github.com/kmoretti/Sponsors/issues/new?template=sponsor.yml" variant="secondary" size="sm">加入名单</Button>
 		</div>
 		{#if sponsors.length === 0}
 			<Card>
