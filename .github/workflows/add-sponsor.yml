@@ -1,0 +1,29 @@
+name: 添加赞助者
+
+on:
+  issues:
+    types: [closed]
+
+jobs:
+  add-sponsor:
+    # 只有带 sponsor 标签的 issue 关闭时才触发
+    if: contains(github.event.issue.labels.*.name, 'sponsor')
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      issues: read
+
+    steps:
+      - name: 检出仓库
+        uses: actions/checkout@v4
+
+      - name: 提取赞助数据并写入 JSON
+        env:
+          ISSUE_BODY: ${{ github.event.issue.body }}
+        run: node .github/scripts/add-sponsor.mjs
+
+      - name: 自动提交变更
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "✨ auto: add sponsor from issue #${{ github.event.issue.number }}"
+          file_pattern: src/lib/data/sponsors.json

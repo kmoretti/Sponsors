@@ -1,0 +1,1 @@
+已创建适合 Cloudflare Pages 部署的前端项目基础配置骨架，包含 package.json、svelte.config.js、tsconfig.json、vite.config.ts、src/app.d.ts、src/app.html、.gitignore。

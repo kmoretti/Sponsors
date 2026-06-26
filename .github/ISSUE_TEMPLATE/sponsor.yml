@@ -1,0 +1,38 @@
+name: 添加赞助者
+description: 提交新的赞助记录，关闭 issue 后自动录入赞助名单。
+title: "[赞助] "
+labels: ["sponsor"]
+body:
+  - type: input
+    id: name
+    attributes:
+      label: 赞助者名称
+      description: 显示在赞助名单上的名称
+      placeholder: 例如：张三
+    validations:
+      required: true
+
+  - type: input
+    id: avatar
+    attributes:
+      label: 头像链接
+      description: 头像图片 URL（可选，留空会显示首字母）
+      placeholder: 例如：https://example.com/avatar.jpg
+
+  - type: input
+    id: date
+    attributes:
+      label: 赞助日期
+      description: 赞助日期（YYYY-MM-DD 格式）
+      placeholder: 例如：2026-07-01
+    validations:
+      required: true
+
+  - type: input
+    id: amount
+    attributes:
+      label: 赞助金额
+      description: 赞助金额（纯数字）
+      placeholder: 例如：100
+    validations:
+      required: true
