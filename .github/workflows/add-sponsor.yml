@@ -2,11 +2,11 @@ name: 添加赞助者
 
 on:
   issues:
-    types: [closed]
+    types: [opened]
 
 jobs:
   add-sponsor:
-    # 只有带 sponsor 标签的 issue 关闭时才触发
+    # 只有带 sponsor 标签的 issue 创建时才触发
     if: contains(github.event.issue.labels.*.name, 'sponsor')
     runs-on: ubuntu-latest
     permissions:
